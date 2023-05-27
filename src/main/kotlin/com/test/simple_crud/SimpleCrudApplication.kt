@@ -12,12 +12,11 @@ fun main(args: Array<String>) {
 
 
 /*
-- teste unitario
-- controller rest
-- conexao com banco de dados
-- error handler
-- logging
-- validation com javax
-
-
+	- teste unitario
+	- error handler
+	- logging
+	- validacao de idade
+	- validacao de email
+	- https://restcountries.com/#endpoints-latest-added-enpoint-independent
+	- swagger
 */
