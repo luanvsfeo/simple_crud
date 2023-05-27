@@ -5,5 +5,7 @@ import java.time.LocalDate
 class Student(
 		var name: String,
 		var birthDate: LocalDate,
-		var email: String
+		var email: String,
+		var countryCommonName : String,
+		var countryOfficialName : String
 )
