@@ -18,5 +18,4 @@ fun main(args: Array<String>) {
 	- validacao de idade
 	- validacao de email
 	- https://restcountries.com/#endpoints-latest-added-enpoint-independent
-	- swagger
 */
