@@ -1,5 +1,6 @@
 package com.test.simple_crud.controller
 
+import com.test.simple_crud.dto.StudentDto
 import com.test.simple_crud.service.StudentService
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -12,25 +13,25 @@ import org.springframework.web.bind.annotation.RestController
 class StudentController(val studentService: StudentService) {
 	@GetMapping
 	fun get() {
-		studentService.read()
+		studentService.readAll()
 	}
 
 	@PostMapping
-	fun post() {
-		studentService.create()
+	fun post(studentDto: StudentDto) {
+		studentService.create(studentDto)
 	}
 
-	@DeleteMapping
-	fun delete() {
-		studentService.delete()
+	@DeleteMapping("/{id}")
+	fun delete(id : Int) {
+		studentService.delete(id)
 	}
 
-	@PutMapping
+	@PutMapping("/{id}")
 	fun put() {
 		studentService.update()
 	}
 
-	@PatchMapping
+	@PatchMapping("/{id}")
 	fun patch() {
 		studentService.update()
 	}
