@@ -1,31 +1,43 @@
 package com.test.simple_crud.service
 
-import com.test.simple_crud.dto.StudentDto
+import com.test.simple_crud.model.dto.StudentDto
 import com.test.simple_crud.repository.StudentRepository
 import com.test.simple_crud.utils.convertToDto
 import com.test.simple_crud.utils.convertToModel
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
 @Service
 class StudentService(val studentRepository: StudentRepository) {
 
-	// colocar logs
-	fun create(studentDto: StudentDto) {
+	private val log = LoggerFactory.getLogger(this::class.java)
+
+	fun create(studentDto: StudentDto): StudentDto {
+		log.info("m=create; step=start; studentDto=$studentDto")
 		val studentBeforeSave = studentDto.convertToModel()
-		studentRepository.save(studentBeforeSave)
+		val studentCreated = studentRepository.save(studentBeforeSave).convertToDto()
+		log.info("m=create; step=finished; studentDto=$studentDto, studentCreated=$studentCreated")
+		return studentCreated
 	}
 
 
 	fun readAll(): List<StudentDto> {
-		return studentRepository.findAll().stream().map { it.convertToDto() }.toList()
+		log.info("m=readAll; step=start")
+		val allStudentList = studentRepository.findAll().stream().map { it.convertToDto() }.toList()
+		log.info("m=readAll; step=finished; allStudentList=$allStudentList")
+		return allStudentList
 	}
 
 	fun update() {
-
+		log.info("m=update; step=start")
+		log.info("m=update; step=finished")
 	}
 
 	fun delete(id: Int): Boolean {
+		log.info("m=delete; step=start; id=$id")
 		val studentFromDb = studentRepository.findById(id)
+		log.info("m=delete; step=current; studentFromDb=$studentFromDb")
+
 		return if (studentFromDb.isPresent) {
 			studentRepository.delete(studentFromDb.get())
 			true

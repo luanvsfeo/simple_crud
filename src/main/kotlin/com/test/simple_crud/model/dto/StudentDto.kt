@@ -1,4 +1,4 @@
-package com.test.simple_crud.dto
+package com.test.simple_crud.model.dto
 
 import java.time.LocalDate
 
