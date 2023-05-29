@@ -17,6 +17,7 @@ buildNumber.properties
 .classpath
 
 .gradle
+.gradle/
 **/build/
 !src/**/build/
 
