@@ -30,6 +30,7 @@ class StudentService(val studentRepository: StudentRepository) {
 
 	fun update() {
 		log.info("m=update; step=start")
+		throw Exception()
 		log.info("m=update; step=finished")
 	}
 
