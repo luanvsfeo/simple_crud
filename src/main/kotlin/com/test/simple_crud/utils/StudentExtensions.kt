@@ -1,7 +1,7 @@
 package com.test.simple_crud.utils
 
-import com.test.simple_crud.model.dto.StudentDto
 import com.test.simple_crud.model.Student
+import com.test.simple_crud.model.dto.StudentDto
 
 fun StudentDto.convertToModel(): Student {
 	return Student(

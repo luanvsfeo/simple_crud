@@ -15,9 +15,13 @@ class StudentService(val studentRepository: StudentRepository) {
 	fun create(studentDto: StudentDto): StudentDto {
 		log.info("m=create; step=start; studentDto=$studentDto")
 		val studentBeforeSave = studentDto.convertToModel()
-		val studentCreated = studentRepository.save(studentBeforeSave).convertToDto()
-		log.info("m=create; step=finished; studentDto=$studentDto, studentCreated=$studentCreated")
-		return studentCreated
+		if(studentBeforeSave.isValid()){
+			val studentCreated = studentRepository.save(studentBeforeSave).convertToDto()
+			log.info("m=create; step=finished; studentDto=$studentDto, studentCreated=$studentCreated")
+			return studentCreated
+		}else{
+			throw Exception("Student invalid") // create a exception for this
+		}
 	}
 
 

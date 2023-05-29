@@ -14,7 +14,7 @@ class StudentController(val studentService: StudentService) {
 
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	fun get() : List<StudentDto> {
+	fun get(): List<StudentDto> {
 		log.info("m=get; step=start")
 		val response = studentService.readAll()
 		log.info("m=get; step=finished; result= $response")
@@ -23,7 +23,7 @@ class StudentController(val studentService: StudentService) {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	fun post(studentDto: StudentDto) : StudentDto {
+	fun post(@RequestBody studentDto: StudentDto): StudentDto {
 		log.info("m=post; step=start")
 		val response = studentService.create(studentDto)
 		log.info("m=post; step=finished")

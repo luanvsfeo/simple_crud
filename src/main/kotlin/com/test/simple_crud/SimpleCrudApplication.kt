@@ -13,9 +13,6 @@ fun main(args: Array<String>) {
 
 /*
 	- teste unitario
-	- error handler
-	- logging
-	- validacao de idade
 	- validacao de email
 	- https://restcountries.com/#endpoints-latest-added-enpoint-independent
 */
