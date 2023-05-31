@@ -26,6 +26,8 @@ dependencies {
 	// swagger-ui
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.0")
 
+	implementation("commons-validator:commons-validator:1.7")
+
 	runtimeOnly ("com.h2database:h2")
 	runtimeOnly ("org.postgresql:postgresql")
 }

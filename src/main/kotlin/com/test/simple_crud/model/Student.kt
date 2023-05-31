@@ -4,6 +4,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import org.apache.commons.validator.routines.EmailValidator
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
@@ -30,7 +31,11 @@ class Student(
 		return !(age < 14 || age > 100)
 	}
 
+	private fun isEmailValid(): Boolean {
+		return EmailValidator.getInstance().isValid(this.email)
+	}
+
 	fun isValid(): Boolean {
-		return this.isAgeInsideRange()
+		return this.isAgeInsideRange() && this.isEmailValid()
 	}
 }
