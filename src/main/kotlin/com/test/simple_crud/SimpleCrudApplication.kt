@@ -12,5 +12,7 @@ fun main(args: Array<String>) {
 
 
 /*
+	- teste integrado
+	- teste de ponta a ponta  (controller,service,repository)
 	- https://restcountries.com/#endpoints-latest-added-enpoint-independent
 */
