@@ -8,6 +8,7 @@ New project just to remember all the new feature that i've already learned
   - Package Web
   - Package DataJpa
   - Package Doc
+- Junit Jupiter
 - Docker
   - Postgres
 - H2
