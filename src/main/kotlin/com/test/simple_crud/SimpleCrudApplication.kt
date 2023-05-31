@@ -12,7 +12,5 @@ fun main(args: Array<String>) {
 
 
 /*
-	- teste unitario
-	- validacao de email
 	- https://restcountries.com/#endpoints-latest-added-enpoint-independent
 */
