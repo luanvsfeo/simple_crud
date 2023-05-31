@@ -12,7 +12,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 class CustomExceptionHandler : ResponseEntityExceptionHandler() {
 
-	// TODO - criar exceptions customizados para cada situacao
 	private val log = LoggerFactory.getLogger(this::class.java)
 
 	@ExceptionHandler(Exception::class)
