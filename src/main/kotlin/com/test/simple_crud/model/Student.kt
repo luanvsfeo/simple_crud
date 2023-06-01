@@ -1,5 +1,6 @@
 package com.test.simple_crud.model
 
+import com.test.simple_crud.model.exception.InvalidStudentException
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -28,11 +29,20 @@ class Student(
 
 	private fun isAgeInsideRange(): Boolean {
 		val age = ChronoUnit.YEARS.between(this.birthDate, LocalDate.now());
-		return !(age < 14 || age > 100)
+
+		if (!(age < 14 || age > 100)) {
+			return true
+		} else {
+			throw InvalidStudentException("Age out of range")
+		}
 	}
 
 	private fun isEmailValid(): Boolean {
-		return EmailValidator.getInstance().isValid(this.email)
+		if (EmailValidator.getInstance().isValid(this.email)) {
+			return true
+		} else {
+			throw InvalidStudentException("Invalid email")
+		}
 	}
 
 	fun isValid(): Boolean {

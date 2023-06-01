@@ -1,6 +1,7 @@
 package com.test.simple_crud.service
 
 import com.test.simple_crud.model.dto.StudentDto
+import com.test.simple_crud.model.exception.InvalidStudentException
 import com.test.simple_crud.repository.StudentRepository
 import com.test.simple_crud.utils.convertToDto
 import com.test.simple_crud.utils.convertToModel
@@ -20,7 +21,7 @@ class StudentService(val studentRepository: StudentRepository) {
 			log.info("m=create; step=finished; studentDto=$studentDto, studentCreated=$studentCreated")
 			return studentCreated
 		}else{
-			throw Exception("Student invalid") // create a exception for this
+			throw InvalidStudentException("Student invalid")
 		}
 	}
 
