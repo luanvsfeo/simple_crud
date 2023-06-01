@@ -1,5 +1,6 @@
 package com.test.simple_crud.controller.handler
 
+import com.test.simple_crud.model.exception.InvalidStudentException
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -14,9 +15,9 @@ class CustomExceptionHandler : ResponseEntityExceptionHandler() {
 
 	private val log = LoggerFactory.getLogger(this::class.java)
 
-	@ExceptionHandler(Exception::class)
-	fun handleGenericException(exception: Exception, request: WebRequest?): ResponseEntity<*>? {
-		log.error("m=handleGenericException;exception=$exception")
+	@ExceptionHandler(InvalidStudentException::class)
+	fun handleInvalidStudentException(exception: Exception, request: WebRequest?): ResponseEntity<*>? {
+		log.error("m=handleInvalidStudentException;exception=$exception")
 		return ResponseEntity
 			.status(HttpStatus.BAD_REQUEST)
 			.body(listOf(exception.message.orEmpty()))
