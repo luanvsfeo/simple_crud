@@ -10,7 +10,7 @@ import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
 @Entity
-class Student(
+data class Student(
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

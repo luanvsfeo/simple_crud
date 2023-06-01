@@ -21,6 +21,15 @@ class StudentController(val studentService: StudentService) {
 		return response
 	}
 
+	@GetMapping("/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	fun getById(@PathVariable("id") id: Int): StudentDto? {
+		log.info("m=getById; step=start")
+		val response = studentService.readById(id)
+		log.info("m=getById; step=finished; result= $response")
+		return response
+	}
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	fun post(@RequestBody studentDto: StudentDto): StudentDto {
@@ -40,17 +49,19 @@ class StudentController(val studentService: StudentService) {
 
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	fun put() {
+	fun put(@RequestBody studentDto: StudentDto): StudentDto {
 		log.info("m=put; step=start")
-		studentService.update()
-		log.info("m=put; step=finished")
+		val response = studentService.update(studentDto)
+		log.info("m=put; step=finished; result= $response")
+		return response
 	}
 
 	@PatchMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	fun patch() {
+	fun patch(@RequestBody studentDto: StudentDto): StudentDto {
 		log.info("m=patch; step=start")
-		studentService.update()
-		log.info("m=patch; step=finished")
+		val response = studentService.update(studentDto)
+		log.info("m=patch; step=finished; result= $response")
+		return response
 	}
 }

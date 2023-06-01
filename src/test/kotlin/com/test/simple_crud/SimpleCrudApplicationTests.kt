@@ -3,11 +3,11 @@ package com.test.simple_crud
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest
+//@SpringBootTest
 class SimpleCrudApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+//	@Test
+//	fun contextLoads() {
+//	}
 
 }

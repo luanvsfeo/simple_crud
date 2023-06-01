@@ -6,6 +6,7 @@ plugins {
 	kotlin("jvm") version "1.8.21"
 	kotlin("plugin.spring") version "1.8.21"
 	kotlin("plugin.jpa") version "1.8.21"
+	kotlin("kapt") version "1.3.72"
 }
 
 group = "com.test"
@@ -27,6 +28,15 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.0")
 
 	implementation("commons-validator:commons-validator:1.7")
+
+	implementation("org.mapstruct:mapstruct:1.5.3.Final")
+	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
+	testAnnotationProcessor ("org.mapstruct:mapstruct-processor:1.5.3.Final")
+
+
+	// lombok
+	implementation("org.projectlombok:lombok-mapstruct-binding:0.2.0")
+	compileOnly("org.projectlombok:lombok:1.18.24")
 
 	runtimeOnly ("com.h2database:h2")
 	runtimeOnly ("org.postgresql:postgresql")
