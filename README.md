@@ -3,12 +3,14 @@ New project just to remember all the new feature that i've already learned
 
 
 # Stack
+- Kotlin / Java 17
 - Spring
-  - Kotlin / Java 17
   - Package Web
   - Package DataJpa
   - Package Doc
 - Junit Jupiter
+- Mapstruct
+- Lombok
 - Docker
-  - Postgres
+- Postgres
 - H2
