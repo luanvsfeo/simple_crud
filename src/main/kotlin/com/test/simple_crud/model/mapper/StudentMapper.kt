@@ -10,6 +10,6 @@ import org.mapstruct.NullValuePropertyMappingStrategy
 
 @Mapper
 interface StudentMapper {
-	//@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-	fun updateStudentFromDto(dto: StudentDto?) : Student
+	@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+	fun updateStudentFromDto(dto: StudentDto?, @MappingTarget entity : Student)
 }

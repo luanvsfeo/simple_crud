@@ -6,7 +6,7 @@ plugins {
 	kotlin("jvm") version "1.8.21"
 	kotlin("plugin.spring") version "1.8.21"
 	kotlin("plugin.jpa") version "1.8.21"
-	kotlin("kapt") version "1.3.72"
+	kotlin("kapt") version "1.8.21"
 }
 
 group = "com.test"
@@ -20,26 +20,37 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation ("org.springframework.boot:spring-boot-starter-actuator")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	implementation ("org.springframework.boot:spring-boot-starter-actuator")
+
 	// swagger-ui
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.0")
 
 	implementation("commons-validator:commons-validator:1.7")
 
-	implementation("org.mapstruct:mapstruct:1.5.3.Final")
-	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
-	testAnnotationProcessor ("org.mapstruct:mapstruct-processor:1.5.3.Final")
-
+	// mapstruct
+	implementation("org.mapstruct:mapstruct:1.5.5.Final")
+	kapt("org.mapstruct:mapstruct-processor:1.5.5.Final")
 
 	// lombok
 	implementation("org.projectlombok:lombok-mapstruct-binding:0.2.0")
 	compileOnly("org.projectlombok:lombok:1.18.24")
 
+	// database
 	runtimeOnly ("com.h2database:h2")
 	runtimeOnly ("org.postgresql:postgresql")
+}
+
+kapt {
+	arguments {
+		arg("mapstruct.defaultComponentModel", "spring")
+		arg("mapstruct.suppressGeneratorTimestamp","true")
+		arg("mapstruct.suppressGeneratorVersionInfoComment","true")
+		arg("mapstruct.verbose","true")
+	}
 }
 
 tasks.withType<KotlinCompile> {
@@ -52,3 +63,4 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+

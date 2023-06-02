@@ -50,7 +50,7 @@ class StudentService(
 		log.info("m=update; step=start; studentDto=$studentDto")
 		var studentFromDb = studentRepository.findById(studentDto.id)
 		if (studentFromDb.isPresent) {
-			//mapper.updateStudentFromDto(studentDto, studentFromDb.get())
+			mapper.updateStudentFromDto(studentDto, studentFromDb.get())
 			val response  = studentRepository.save(studentFromDb.get())
 			log.info("m=update; step=finished; studentDto=$studentDto , studentFromDb=$response")
 			return response.convertToDto()
